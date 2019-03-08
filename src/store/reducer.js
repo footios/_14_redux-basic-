@@ -10,9 +10,9 @@ const initialState = {
         case 'DECREMENT':
             return {counter: state.counter - 1};
         case 'ADD_FIVE':
-            return {counter: state.counter + 5};
+            return {counter: state.counter + action.val};
         case 'SUB_FIVE':
-            return {counter: state.counter - 5};
+            return {counter: state.counter - action.val};
         default:
             return state;
     }
