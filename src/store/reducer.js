@@ -1,21 +1,31 @@
 
 const initialState = {
     counter: 0,
-    results: [1, 2]
+    results: []
 }
 
  const reducer = (state = initialState, action) => {
     switch (action.type) {
         case 'INCREMENT':
-            return {counter: state.counter + 1};
+            return {...state, counter: state.counter + 1};
         case 'DECREMENT':
-            return {counter: state.counter - 1};
+            return {...state, counter: state.counter - 1};
         case 'ADD_FIVE':
-            return {counter: state.counter + action.val};
+            return {...state, counter: state.counter + action.val};
         case 'SUB_FIVE':
-            return {counter: state.counter - action.val};
+            return {...state, counter: state.counter - action.val};
         case 'STORE_RESULT':
-            return {results: state.results.push(action.val)};
+        
+            return {
+                ...state, 
+                results: [...state.results, {id: new Date(), value: state.counter}]
+            };
+        case 'DELETE_RESULT':
+        const updatedResults = state.results.filter(result => result.id !== action.id)
+            return {
+                ...state, 
+                results: updatedResults
+            };
         default:
             return state;
     }
