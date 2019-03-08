@@ -7,6 +7,12 @@ const initialState = {
     switch (action.type) {
         case 'INCREMENT':
             return {counter: state.counter + 1};
+        case 'DECREMENT':
+            return {counter: state.counter - 1};
+        case 'ADD_FIVE':
+            return {counter: state.counter + 5};
+        case 'SUB_FIVE':
+            return {counter: state.counter - 5};
         default:
             return state;
     }
