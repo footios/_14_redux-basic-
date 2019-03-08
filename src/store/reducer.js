@@ -1,6 +1,7 @@
 
 const initialState = {
-    counter: 0
+    counter: 0,
+    results: [1, 2]
 }
 
  const reducer = (state = initialState, action) => {
@@ -13,6 +14,8 @@ const initialState = {
             return {counter: state.counter + action.val};
         case 'SUB_FIVE':
             return {counter: state.counter - action.val};
+        case 'STORE_RESULT':
+            return {results: state.results.push(action.val)};
         default:
             return state;
     }
